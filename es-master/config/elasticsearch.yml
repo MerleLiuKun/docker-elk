@@ -22,5 +22,5 @@ cluster.initial_master_nodes: ["es-master"]
 #
 # modify
 xpack.license.self_generated.type: basic
-xpack.security.enabled: true
+# xpack.security.enabled: true
 xpack.monitoring.collection.enabled: true
