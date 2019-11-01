@@ -1,19 +1,19 @@
 version: '3.2'
 
 services:
-  elasticsearch:
+  es-master:
     build:
-      context: elasticsearch/
+      context: es-master/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - type: bind
-        source: ./elasticsearch/config/elasticsearch.yml
-        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        source: ./es-master/config/elasticsearch.yml
+        target: /usr/share/es-master/config/elasticsearch.yml
         read_only: true
       - type: bind
-        source: /data/elk-data/elasticsearch
-        target: /usr/share/elasticsearch/data
+        source: /data/elk-data/elasticsearch/es-master
+        target: /usr/share/elasticsearch/es-master
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -23,22 +23,44 @@ services:
     networks:
       - elk
 
-  elasticsearch_slave:
+  es-slave1:
     build:
-      context: elasticsearch_slave/
+      context: es-slave1/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - type: bind
-        source: ./elasticsearch_slave/config/elasticsearch.yml
-        target: /usr/share/elasticsearch_slave/config/elasticsearch.yml
+        source: ./es-slave1/config/elasticsearch.yml
+        target: /usr/share/es-slave1/config/elasticsearch.yml
         read_only: true
       - type: bind
-        source: /data/elk-data/elasticsearch
-        target: /usr/share/elasticsearch/data
+        source: /data/elk-data/elasticsearch/es-slave1
+        target: /usr/share/elasticsearch/es-slave1
     ports:
       - "9201:9200"
       - "9301:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx4g -Xms4g"
+      ELASTIC_PASSWORD: changeme
+    networks:
+      - elk
+  
+  es-slave2:
+    build:
+      context: es-slave2/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - type: bind
+        source: ./es-slave2/config/elasticsearch.yml
+        target: /usr/share/es-slave2/config/elasticsearch.yml
+        read_only: true
+      - type: bind
+        source: /data/elk-data/elasticsearch/es-slave2
+        target: /usr/share/elasticsearch/es-slave2
+    ports:
+      - "9202:9200"
+      - "9302:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx4g -Xms4g"
       ELASTIC_PASSWORD: changeme
@@ -67,7 +89,9 @@ services:
     networks:
       - elk
     depends_on:
-      - elasticsearch
+      - es-master
+      - es-slave1
+      - es-slave2
 
   kibana:
     build:
@@ -84,7 +108,9 @@ services:
     networks:
       - elk
     depends_on:
-      - elasticsearch
+      - es-master
+      - es-slave1
+      - es-slave2
 
 networks:
   elk:
