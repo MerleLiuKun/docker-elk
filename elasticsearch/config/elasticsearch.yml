@@ -17,7 +17,3 @@ discovery.type: single-node
 xpack.license.self_generated.type: basic
 xpack.security.enabled: true
 xpack.monitoring.collection.enabled: true
-
-sudo docker pull docker.elastic.co/elasticsearch/elasticsearch:7.4.1
-sudo docker pull docker.elastic.co/kibana/kibana:7.4.1
-sudo docker pull docker.elastic.co/logstash/logstash:7.4.1
