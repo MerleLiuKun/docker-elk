@@ -4,7 +4,7 @@
 #
 cluster.name: "es-cluster"
 network.host: 0.0.0.0
-node.name: es-master
+node.name: "es-master"
 node.master: true
 http.port: 9200
 transport.port: 9300
