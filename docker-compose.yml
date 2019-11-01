@@ -3,13 +3,13 @@ version: '3.2'
 services:
   es-master:
     build:
-      context: ./es-master/
+      context: es-master/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - type: bind
         source: ./es-master/config/elasticsearch.yml
-        target: /usr/share/es-master/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: bind
         source: /data/elk-data/elasticsearch/es-master
@@ -29,13 +29,13 @@ services:
 
   es-slave1:
     build:
-      context: ./es-slave1/
+      context: es-slave1/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - type: bind
         source: ./es-slave1/config/elasticsearch.yml
-        target: /usr/share/es-slave1/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: bind
         source: /data/elk-data/elasticsearch/es-slave1
@@ -55,13 +55,13 @@ services:
   
   es-slave2:
     build:
-      context: ./es-slave2/
+      context: es-slave2/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - type: bind
         source: ./es-slave2/config/elasticsearch.yml
-        target: /usr/share/es-slave2/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: bind
         source: /data/elk-data/elasticsearch/es-slave2
