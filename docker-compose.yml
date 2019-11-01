@@ -3,7 +3,7 @@ version: '3.2'
 services:
   es-master:
     build:
-      context: es-master/
+      context: ./es-master/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
@@ -29,7 +29,7 @@ services:
 
   es-slave1:
     build:
-      context: es-slave1/
+      context: ./es-slave1/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
@@ -55,7 +55,7 @@ services:
   
   es-slave2:
     build:
-      context: es-slave2/
+      context: ./es-slave2/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
@@ -81,7 +81,7 @@ services:
 
   logstash:
     build:
-      context: logstash/
+      context: ./logstash/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
@@ -107,7 +107,7 @@ services:
 
   kibana:
     build:
-      context: kibana/
+      context: ./kibana/
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
