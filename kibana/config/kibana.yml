@@ -11,3 +11,6 @@ xpack.monitoring.ui.container.elasticsearch.enabled: true
 #
 elasticsearch.username: elastic
 elasticsearch.password: changeme
+
+# translations
+i18n.locale: "zh-CN"
