@@ -4,6 +4,7 @@
 #
 cluster.name: "es-master"
 network.host: 0.0.0.0
+node.master: true
 node.data: true
 
 ## Use single node discovery in order to disable production mode and avoid bootstrap checks
