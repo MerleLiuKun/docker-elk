@@ -23,7 +23,7 @@ services:
     networks:
       - elk
 
-elasticsearch_slave:
+  elasticsearch_slave:
     build:
       context: elasticsearch_slave/
       args:
@@ -37,8 +37,8 @@ elasticsearch_slave:
         source: /data/elk-data/elasticsearch
         target: /usr/share/elasticsearch/data
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - "9201:9200"
+      - "9301:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx4g -Xms4g"
       ELASTIC_PASSWORD: changeme
