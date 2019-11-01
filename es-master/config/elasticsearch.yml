@@ -6,7 +6,9 @@ cluster.name: "es-cluster"
 network.host: 0.0.0.0
 node.name: es-master
 node.master: true
-
+http.port: 9200
+transport.port: 9300
+# 集群发现
 discovery.seed_hosts: ["es-master", "es-slave1", "es-slave2"]
 cluster.initial_master_nodes: ["es-master"]
 

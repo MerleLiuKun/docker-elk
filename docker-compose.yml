@@ -41,8 +41,8 @@ services:
         source: /data/elk-data/elasticsearch/es-slave1
         target: /usr/share/elasticsearch/es-slave1
     ports:
-      - "9201:9200"
-      - "9301:9300"
+      - "9200:9200"
+      - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx4g -Xms4g"
       ELASTIC_PASSWORD: changeme
@@ -67,8 +67,8 @@ services:
         source: /data/elk-data/elasticsearch/es-slave2
         target: /usr/share/elasticsearch/es-slave2
     ports:
-      - "9202:9200"
-      - "9302:9300"
+      - "9200:9200"
+      - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx4g -Xms4g"
       ELASTIC_PASSWORD: changeme
