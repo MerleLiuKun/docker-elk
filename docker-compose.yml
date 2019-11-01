@@ -20,6 +20,10 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xmx4g -Xms4g"
       ELASTIC_PASSWORD: changeme
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     networks:
       - elk
 
@@ -42,6 +46,10 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xmx4g -Xms4g"
       ELASTIC_PASSWORD: changeme
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     networks:
       - elk
   
@@ -64,6 +72,10 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xmx4g -Xms4g"
       ELASTIC_PASSWORD: changeme
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     networks:
       - elk
 
