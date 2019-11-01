@@ -60,7 +60,7 @@ sudo docker logout
 sudo vim /etc/docker/daemon.json
 # 贴如如下语句
 {
-  "registry-mirrors": ["https://s0d5es5w.mirror.aliyuncs.com"]
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
 }
 ```
 
