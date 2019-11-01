@@ -6,10 +6,11 @@ cluster.name: "es-cluster"
 network.host: 0.0.0.0
 node.name: "es-slave1"
 node.master: true
-http.port: 9201
+node.data: false
+http.port: 19201
 # transport.port: 9301
 
-discovery.seed_hosts: ["es-master", "es-slave1", "es-slave2"]
+discovery.seed_hosts: ["es-master:19200", "es-slave1:19201", "es-slave2:19202"]
 cluster.initial_master_nodes: ["es-master"]
 
 ## Use single node discovery in order to disable production mode and avoid bootstrap checks
