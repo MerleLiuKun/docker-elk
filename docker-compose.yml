@@ -13,7 +13,10 @@ services:
         read_only: true
       - type: bind
         source: /data/elk-data/elasticsearch/es-master
-        target: /usr/share/elasticsearch/es-master
+        target: /usr/share/elasticsearch/data
+      - type: bind
+        source: /data/elk-data/elasticsearch/es-master-logs
+        target: /usr/share/elasticsearch/logs
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -39,7 +42,10 @@ services:
         read_only: true
       - type: bind
         source: /data/elk-data/elasticsearch/es-slave1
-        target: /usr/share/elasticsearch/es-slave1
+        target: /usr/share/elasticsearch/data
+      - type: bind
+        source: /data/elk-data/elasticsearch/es-slave1-logs
+        target: /usr/share/elasticsearch/logs
     ports:
       - "9201:9200"
       - "9301:9300"
@@ -65,7 +71,10 @@ services:
         read_only: true
       - type: bind
         source: /data/elk-data/elasticsearch/es-slave2
-        target: /usr/share/elasticsearch/es-slave2
+        target: /usr/share/elasticsearch/data
+      - type: bind
+        source: /data/elk-data/elasticsearch/es-slave2-logs
+        target: /usr/share/elasticsearch/logs
     ports:
       - "9202:9200"
       - "9302:9300"
