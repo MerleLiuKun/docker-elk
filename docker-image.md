@@ -50,9 +50,7 @@ sudo docker logout
 
 此时镜像已经推送到了 官方仓库.
 
-## 配置阿里云的加速器
-
-加速URL需要进入到公司的阿里云账户下获取。
+## 配置加速器
 
 主要将加速URL写入到 /etc/docker/daemon.json文件中
 
@@ -60,7 +58,11 @@ sudo docker logout
 sudo vim /etc/docker/daemon.json
 # 贴如如下语句
 {
-  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn/",
+    "https://dockerhub.azk8s.cn/",
+    "https://reg-mirror.qiniu.com/"
+  ]
 }
 ```
 
