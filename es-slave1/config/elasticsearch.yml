@@ -3,13 +3,14 @@
 ## https://github.com/elastic/elasticsearch/blob/master/distribution/docker/src/docker/config/elasticsearch.yml
 #
 cluster.name: "es-cluster"
-network.host: 0.0.0.0
+network.host: "0.0.0.0"
 node.name: "es-slave1"
 node.master: true
-http.port: 19201
+http.port: 9201
+transport.port: 9301
 
-discovery.seed_hosts: ["es-master:19200", "es-slave1:19201", "es-slave2:19202"]
-cluster.initial_master_nodes: ["es-master"]
+discovery.seed_hosts: ["es-master:9300", "es-slave1:9301", "es-slave2:9302"]
+cluster.initial_master_nodes: ["es-master", "es-slave1"]
 
 http.cors.enabled: true
 http.cors.allow-origin: "*"
