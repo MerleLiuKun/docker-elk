@@ -5,17 +5,17 @@ services:
     build:
       context: es-master/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.4.1
     volumes:
       - type: bind
         source: ./es-master/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: bind
-        source: /data/elk-data/elasticsearch/es-master
+        source: ${ELASTIC_DATA_PREFIX}/es-master
         target: /usr/share/elasticsearch/data
       - type: bind
-        source: /data/elk-data/elasticsearch/es-master-logs
+        source: ${ELASTIC_DATA_PREFIX}/es-master-logs
         target: /usr/share/elasticsearch/logs
     ports:
       - "19200:9200"
@@ -34,17 +34,17 @@ services:
     build:
       context: es-slave1/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.4.1
     volumes:
       - type: bind
         source: ./es-slave1/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: bind
-        source: /data/elk-data/elasticsearch/es-slave1
+        source: ${ELASTIC_DATA_PREFIX}/es-slave1
         target: /usr/share/elasticsearch/data
       - type: bind
-        source: /data/elk-data/elasticsearch/es-slave1-logs
+        source: ${ELASTIC_DATA_PREFIX}/es-slave1-logs
         target: /usr/share/elasticsearch/logs
     ports:
       - "19201:9201"
@@ -63,14 +63,14 @@ services:
     build:
       context: es-slave2/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.4.1
     volumes:
       - type: bind
         source: ./es-slave2/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: bind
-        source: /data/elk-data/elasticsearch/es-slave2-logs
+        source: ${ELASTIC_DATA_PREFIX}/es-slave2-logs
         target: /usr/share/elasticsearch/logs
     ports:
       - "19202:9202"
@@ -87,9 +87,9 @@ services:
 
   logstash:
     build:
-      context: ./logstash/
+      context: logstash/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.4.1
     volumes:
       - type: bind
         source: ./logstash/config/logstash.yml
@@ -113,9 +113,9 @@ services:
 
   kibana:
     build:
-      context: ./kibana/
+      context: kibana/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: 7.4.1
     volumes:
       - type: bind
         source: ./kibana/config/kibana.yml

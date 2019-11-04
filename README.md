@@ -17,8 +17,17 @@
 
 ## 部署步骤
 
+1. 设置环境变量
 
-## 节点变动
+```bash
+cp .env-template .env
+```
+并修改其中需要修改的变量
 
+2. 使用 `docker-compose` 启动
 
-## 相关问题
+编译启动
+
+```bash
+sudo docker-compose up --build
+```
