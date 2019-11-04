@@ -6,7 +6,6 @@ cluster.name: "es-cluster"
 network.host: 0.0.0.0
 node.name: "es-slave1"
 node.master: true
-node.data: false
 http.port: 19201
 
 discovery.seed_hosts: ["es-master:19200", "es-slave1:19201", "es-slave2:19202"]

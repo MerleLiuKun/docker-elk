@@ -70,9 +70,6 @@ services:
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: bind
-        source: /data/elk-data/elasticsearch/es-slave2
-        target: /usr/share/elasticsearch/data
-      - type: bind
         source: /data/elk-data/elasticsearch/es-slave2-logs
         target: /usr/share/elasticsearch/logs
     ports:
