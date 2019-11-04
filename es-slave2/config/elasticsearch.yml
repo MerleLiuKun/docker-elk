@@ -5,6 +5,7 @@
 cluster.name: "es-cluster"
 network.host: "0.0.0.0"
 node.name: "es-slave2"
+node.master: false
 node.data: false
 http.port: 9202
 transport.port: 9302
