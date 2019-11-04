@@ -7,10 +7,12 @@ network.host: 0.0.0.0
 node.name: "es-slave2"
 node.data: false
 http.port: 19202
-# transport.port: 9302
 
 discovery.seed_hosts: ["es-master:19200", "es-slave1:19201", "es-slave2:19202"]
 cluster.initial_master_nodes: ["es-master"]
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
 
 ## Use single node discovery in order to disable production mode and avoid bootstrap checks
 ## see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
