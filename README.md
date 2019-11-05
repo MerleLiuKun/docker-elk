@@ -55,3 +55,9 @@ sudo docker-compose up -d
 ```bash
 sudo docker-compose down -v
 ```
+
+## 其他
+
+#### Filebeat
+
+在 [Filebeat样例](filebeat/README.md) 中提供了简单部署 `Filebeat` 采集服务的样例

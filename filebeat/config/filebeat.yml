@@ -1,0 +1,11 @@
+filebeat.inputs:
+  - type: log
+    paths:
+      - "/var/share/log/api_access.log"
+    fields:
+      type: api_access
+      encoding: utf8
+
+
+output.logstash:
+  hosts: ["127.0.0.5:15000"]
