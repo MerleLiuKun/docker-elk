@@ -1,9 +1,9 @@
 filebeat.inputs:
   - type: log
     paths:
-      - "/var/share/log/api_access.log"
+      - "/var/share/log/access.log"
     fields:
-      type: api_access
+      type: access
       encoding: utf8
 
 
