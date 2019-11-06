@@ -6,7 +6,7 @@ containerName=ik-filebeat
 # 日志目录地址
 logPath=path/to/logs
 # filebeat 配置文件位置
-filebeatConfigPath=path/to/filebeats/config/filebeat.yml
+filebeatConfigPath=path/to/filebeat/config/filebeat.yml
 ####  变量配置结束  ####
 
 #### 以下代码尽量勿动
